@@ -1,0 +1,252 @@
+<div class="robotoReg" id="configurationsPage" ng-controller="configCtrl">
+	<center>
+		<div class="main configBox">
+			<div class="row bottomLine">
+				<h2>Configurations</h2>
+			</div><br>
+
+			<div class="row" id="apis">
+				<form class="center-align">
+					<div class="left">
+						<input type="radio" name="apiConfig" value="1" ng-model="radioBoxSelection" id="rest">
+						<label for="rest">REST Configurations</label>
+					</div>
+					<div>
+						<input type="radio" name="apiConfig" value="2" ng-model="radioBoxSelection" id="soap">
+						<label for="soap">SOAP Configurations</label>
+					</div>
+				</form>
+			</div>
+			<br>
+			<div class="row" id="REST" ng-show="radioBoxSelection == 1" style="font-size: 14px">
+				<div class="row">
+					<a class="btn right blue darken-1" href="#/settings"><i class="material-icons left">add</i>Add API</a>
+				</div>
+				<div class="row" style="font-size: 14px">
+					<table class="bordered centered responsive-table">
+						<thead style="background-color: rgba(0, 0, 0, 0.2)">
+							<th data-field="region">Region</th>
+      	         			<th data-field="api_name">API Name</th>
+      					 	<th data-field="country">Country</th>
+      					 	<th data-field="active">Active?</th>
+						</thead>
+						<tbody>
+							<tr>
+								<td>West Africa</td>
+								<td>MTN Mobile money</td>
+								<td>Cameroon</td>
+								<td>True</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
+				<!-- Partials -->
+				<script type="text/ng-template" id="/settings">
+					<div class="row" style="width: 80%; position: relative; left: 5%;" ng-controller="configCtrl">
+						<center>
+							<br><br>
+							<span style="font-weight: bold; font-size: 30px;">Location</span>
+							<div class="row">
+								<div class="col s6">
+									<div class="input-field">
+										<input id="regionName" type="text" class="validate" ng-model="region">
+										<label for="regionName" data-error="wrong" data-success="right">Region<span style="color: red">*</span>&nbsp;&nbsp;<span style="color: rgba(0,0,0,0.3); font-size: 15px">eg. West Africa</span></label>
+									</div>
+								</div>
+								<div class="col s6">
+									<div class="input-field">
+										<input id="countryName" type="text" class="validate" ng-model="country">
+										<label for="countryName" data-error="wrong" data-success="right">Country<span style="color: red">*</span>&nbsp;&nbsp;<span style="color: rgba(0,0,0,0.3); font-size: 15px">eg. Cameroon</span></label>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<br>
+								<span style="font-weight: bold; font-size: 30px;">Configure API</span>
+								<br>
+								<span style="font-weight: bold; font-size: 20px;" class="left">Basic Information</span>
+								<br>
+								<hr>
+							</div>
+							<div class="row" style="position: relative; left: 8%;">
+								<form>
+									<div class="row">
+										<div class="input-field col s10">
+											<input id="displayName" type="text" class="validate" ng-model="display_name">
+											<label for="displayName" data-error="wrong" data-success="right">Display Name<span style="color: red">*</span>&nbsp;&nbsp;<span style="color: rgba(0,0,0,0.3); font-size: 15px">eg. MTN mobile money</span></label>
+										</div>
+									</div>
+									<div class="row">
+										<div class="input-field col s10">
+											<input id="savingsUrl" type="text" class="validate" ng-model="savings_url">
+											<label for="savingsUrl" data-error="wrong" data-success="right">Savings URL<span style="color: red">*</span>&nbsp;&nbsp;<span style="color: rgba(0,0,0,0.3); font-size: 15px">eg. http://api.furthermarket.com/FM/MTN/MoMo/requestpayment</span></label>
+										</div>
+									</div>
+									<div class="row">
+										<div class="input-field col s10">
+											<input id="withdrawUrl" type="text" class="validate" ng-model="withdraw_url">
+											<label for="withdrawUrl" data-error="wrong" data-success="right">Withdrawals URL<span style="color: red">*</span>&nbsp;&nbsp;<span style="color: rgba(0,0,0,0.3); font-size: 15px">eg. http://api.furthermarket.com/FM/MTN/MoMo/requestpayment</span></label>
+										</div>
+									</div>
+									<div class="row">
+										<div class="input-field col s10">
+											<input id="orgAccId" type="number" class="validate" ng-model="orgAcc_id">
+											<label for="orgAccId" data-error="wrong" data-success="right">Org Account Id<span style="color: red">*</span>&nbsp;&nbsp;<span style="color: rgba(0,0,0,0.3); font-size: 15px">3456</span></label>
+										</div>
+									</div>
+									<div class="row">
+										<div class="input-field col s10">
+											<input id="phoneNumber" type="number" class="validate" ng-model="org_phone">
+											<label for="phoneNumber" data-error="wrong" data-success="right">Phone number<span style="color: red">*</span></label>
+										</div>
+									</div>
+								</form>
+								<div class="row">
+									<div class="row" style="position:relative; left: -10%;">
+										<span style="font-weight: bold; font-size: 20px;" class="left">Parameters</span>
+										<br>
+										<hr>
+									</div>
+									<div class="row">
+										<span class="left">Savings Parameters:</span>
+										<div class="col s12">
+											<div class="col s5">
+												<div class="input-field col s10">
+													<input id="savingsParamName" type="text" class="validate" ng-model="savingsParamName">
+													<label for="savingsParamName" data-error="wrong" data-success="right">Parameter name<span style="color: red">*</span></label>
+												</div>
+											</div>
+											<div class="col s4">
+												<div class="input-field col s10">
+													<input id="savingsParamValue" type="text" class="validate" ng-model="savingsParamValue">
+													<label for="savingsParamValue" data-error="wrong" data-success="right">Sample Value<span style="color: red">*</span></label>
+												</div>
+											</div>
+											<div class="row">
+												<a class="left" ng-click="addSavingsParam()"><i style="color: #1976d2; cursor:pointer" class="material-icons">add</i></a>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row left" style="font-size: 14px; width:80%; clear: both" ng-show="hide">
+									<div class="col s12">
+										<table class="bordered centered responsive-table">
+											<thead style="background-color: rgba(0, 0, 0, 0.2)">
+												<th data-field="region">Parameter Name</th>
+					      	         			<th data-field="api_name">Sample Parameter Value</th>
+					      	         			<th data-field="action">Action</th>
+											</thead>
+											<tbody>
+												<tr dir-paginate="param in savingsParams|itemsPerPage: 5" class="pointer">
+													<td>{{param.savingsParamName}}</td>
+													<td>{{param.savingsParamValue}}</td>
+													<td>
+														<a class="left" ng-click="delSavingsParam($index)">
+															<i style="color: red; cursor:pointer" class="material-icons">clear</i>
+														</a>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									<div>
+										<center>
+											<dir-pagination-controls
+										    	max-size="10"
+										    	direction-links="true"
+										    	boundary-links="true" >
+											</dir-pagination-controls>
+										</center>
+									</div>
+								</div>	
+								<br>
+								<div class="row">
+									<div style="clear: both">
+										<span class="left">Withdrawal Parameters:</span>
+										<div class="col s12">
+											<div class="col s5">
+												<div class="input-field col s10">
+													<input id="withParamName" type="text" class="validate" ng-model="withParamName">
+													<label for="withParamName" data-error="wrong" data-success="right">Parameter name<span style="color: red">*</span></label>
+												</div>
+											</div>
+											<div class="col s4">
+												<div class="input-field col s10">
+													<input id="withParamValue" type="text" class="validate" ng-model="withParamValue">
+													<label for="withParamValue" data-error="wrong" data-success="right">Sample Value<span style="color: red">*</span></label>
+												</div>
+											</div>
+											<a class="left" ng-click="addWithParams()"><i style="color: #1976d2; cursor:pointer" class="material-icons">add</i></a>
+										</div>
+									</div>
+								</div>
+								<div class="row left" style="font-size: 14px; width:80%;" ng-show="withHide">
+									<div class="col s12">
+										<table class="bordered centered responsive-table">
+											<thead style="background-color: rgba(0, 0, 0, 0.2)">
+												<th data-field="region">Parameter Name</th>
+					      	         			<th data-field="api_name">Sample Parameter Value</th>
+					      	         			<th data-field="action">Action</th>
+											</thead>
+											<tbody>
+												<tr dir-paginate="param in withdrawalParams|itemsPerPage: 5" class="pointer">
+													<td>{{param.withParamName}}</td>
+													<td>{{param.withParamValue}}</td>
+													<td>
+														<a class="left" ng-click="delWithParams($index)">
+															<i style="color: red; cursor:pointer" class="material-icons">clear</i>
+														</a>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									<div>
+										<center>
+											<dir-pagination-controls
+										    	max-size="10"
+										    	direction-links="true"
+										    	boundary-links="true" >
+											</dir-pagination-controls>
+										</center>
+									</div>
+								</div>	
+								<div class="row">
+									 <div class="col s10">
+                  						<a class="btn waves-effect waves-light red darken-1 left" ng-click="goBack()">Cancel<i class="material-icons right">clear</i></a>
+                  						<button class="btn waves-effect waves-light blue darken-1 right" ng-click="updateSettings()">Submit<i class="material-icons right">send</i></button>
+              						</div>
+								</div>
+							</div>
+	            		</center>
+					</div>
+					<!-- Modal code -->
+	  				<div id="updateModal" class="modal" ng-controller="configCtrl">
+		    			<div class="modal-content">
+                  			<span class="robotoThin" style="font-size: 25px;">Please wait....Processing request</span>
+                		</div>
+                		<div class="modal-footer">
+                  			<div class="progress">
+                    			<div class="indeterminate"></div>
+                  			</div>
+                		</div>
+	  				</div>
+				</script>
+  				<div id="cancelModal" class="modal">
+	    			<div class="modal-content">
+	      				<h4>Confirm cancelation</h4>
+	      				<p>Agreeing discards all your changes<br>Are you sure you want to discard your changes?</p>
+	    			</div>
+	    			<div class="modal-footer">
+	      				<a class="btn left modal-action modal-close waves-effect waves-light red">Disagree</a>
+	      				<a ng-click="goBack()" class="btn right modal-action modal-close waves-effect waves-light blue">Agree</a>
+	    			</div>
+  				</div>
+			</div>
+			<div class="row" id="SOAP" ng-show="radioBoxSelection == 2">
+				<span>SOAP configurations will go here</span>
+			</div>
+		</div>
+	</center>
+</div>

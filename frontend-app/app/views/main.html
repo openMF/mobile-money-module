@@ -1,0 +1,55 @@
+<div id="homeContent">
+      <div class="row colorGrey" style="width: 90%">
+        <div class="row">
+          <form class="col s12">
+            <div class="row">
+              <div class="input-field col s12">
+                <i class="material-icons prefix colorGrey">search</i>
+                <input type="text" ng-model="search" placeholder="Search Clients by id/#externalId/Name" name="clientSearch" class="validate" id="clientSearchId">
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="row col s12">
+          <table class="responsive-table bordered tableStyle">
+              <thead style="background-color: rgba(0, 0, 0, 0.2)">
+                <tr>
+                    <th data-field="name">Name</th>
+                    <th data-field="client">Client #</th>
+					<th data-field="status">Status</th>
+                    <th data-field="externalId">External Id</th>
+                    <th data-field="office">Office</th>
+                    <th data-field="staff">Staff</th>
+                </tr>
+              </thead>
+              <tbody class="clientInfo" ng-hide="loading">
+                <tr dir-paginate="client in clients | filter:search | itemsPerPage: 6" class="pointer tableHover">
+                  <td><a ui-sref="clientPage({id: (client.id)})" href="#/client/client.id">{{client.displayName}}</a></td>
+                  <td><a ui-sref="clientPage({id: (client.id)})" href="#/client/client.id">{{client.accountNo}}</a></td>
+                  <td><a ui-sref="clientPage({id: (client.id)})" href="#/client/client.id">
+                    <i class="tiny material-icons prefix" ng-class="client.active ? 'icon-green' : 'icon-red'">stop</i>&nbsp;{{client.status.value}}
+                    <small ng-if="client.subStatus.description">[{{client.subStatus.description}}]</small>
+                    </a>
+                  </td>
+                  <td><a ui-sref="clientPage({id: (client.id)})" href="#/client/client.id">{{client.externalId}}</a></td>
+                  <td><a ui-sref="clientPage({id: (client.id)})" href="#/client/client.id">{{client.officeName}}</a></td>
+                  <td><a ui-sref="clientPage({id: (client.id)})" href="#/client/client.id">{{client.staffName}}</td>
+                </tr>
+              </tbody>
+            </table>
+			<div>
+				<center>
+				<dir-pagination-controls
+			    	max-size="10"
+			    	direction-links="true"
+			    	boundary-links="true" >
+				</dir-pagination-controls>
+				</center>
+			</div>
+             <!-- spinner -->
+              <div class="spinner" ng-show="loading">
+                <img src="images/default.gif">
+              </div>
+        </div>
+      </div>
+  </div>
