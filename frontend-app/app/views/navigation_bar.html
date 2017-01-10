@@ -1,18 +1,35 @@
-<!-- Dropdown Structure -->
-    <ul ng-controller="dropCtrl" id="dropdown1" class="dropdown-content" style="font-size: 9px; color: black">
-      <li><a><i class="material-icons left colorGrey" style="font-size: 13px;">info_outline</i><span style="color: black">Help</span></a></li>
-      <li><a><i class="material-icons left colorGrey" style="font-size: 13px;">power_settings_new</i><span style="color: black" ng-click="logout()">Log out</span></a></li>
-    </ul>
-      <!-- navigation bar -->
-      <nav class="blue darken-1" ng-controller="navCtrl">
-        <div class="nav-wrapper">
-          <a href="#/home" class="brand-logo left" style="position: relative; left: 2%;"><img src="images/MifosX_logoSmall.png"></a>
-          <ul id="nav-mobile" class="right hide-on-med-and-down" style="position: relative; right: 2%;">
-			<li><a href="#/home"><i class="material-icons left">group</i>Clients</a></li>
-            <li><a href="#/transactions"><i class="material-icons left">visibility</i>Transactions</a></li>
-            <li><a href="#/configurations"><i class="material-icons left">settings</i>Configurations</a></li>
-            <!-- Triggers the dropdown -->
-            <li><a href="#!" class="dropdown-button" data-activates="dropdown1">Daniel<i class="material-icons right">arrow_drop_down</i></a></li>
-          </ul>
-        </div>
-      </nav>
+<!-- navigation bar -->
+<nav class="navbar navbar-inverse navbar-fixed-top" ng-controller="navCtrl"
+	style="background-color: #4c66a4; border-color: #4c66a4; background-image: none">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<a href="#/home" class="navbar-brand navbar-left"
+				style="position: relative; left: 2%;"> <img
+				src="images/MifosX_logoSmall.png"></a>
+		</div>
+		<div class="collapse navbar-collapse">
+			<ul id="nav-mobile" class="nav navbar-nav navbar-right"
+				style="position: relative; right: 2%;">
+				<li><a href="#/home"><i
+						class="glyphicon glyphicon-user"></i>Clients</a></li>
+				<li><a href="#/transactions"><i
+						class="glyphicon glyphicon-eye-open"></i>Transactions</a></li>
+				<li><a href="#/configurations"><i
+						class="glyphicon glyphicon-cog"></i>Configurations</a></li>
+				<!-- Triggers the dropdown -->
+				<li class="dropdown"><a href="#!" class="dropdown-toggle"
+					data-toggle="dropdown" role="button" aria-haspopup="true"
+					aria-expanded="false">Daniel<span class="caret"></span></a>
+					<ul ng-controller="dropCtrl" id="dropdown" class="dropdown-menu"
+						style="font-size: 15px; color: black">
+						<li><a><i class="glyphicon glyphicon-info-sign colorGrey"
+								style="font-size: 13px; margin-right: 15px"></i><span
+								style="color: black">Help</span></a></li>
+						<li><a><i class="glyphicon glyphicon-log-out colorGrey"
+								style="font-size: 13px; margin-right: 15px"></i><span
+								style="c olor: black" ng-click="logout()">Log out</span></a></li>
+					</ul></li>
+			</ul>
+		</div>
+	</div>
+</nav>

@@ -5,7 +5,7 @@ angular.module('mobileMoneyApp')
   .controller('navCtrl', ['$scope', function($scope) {
 
   		$(document).ready(function(){
-  			$(".dropdown-button").dropdown();
+  			$(".dropdown-toggle").dropdown();
   		});
   }])
   .controller('dropCtrl', ['$scope', '$state', function($scope, $state){

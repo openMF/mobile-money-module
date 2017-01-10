@@ -4,13 +4,13 @@
 		  <img src="images/default.gif">
         </div>
       <div class="row" ng-hide="loading">
-        <div class="col s8">
+        <div class="col-sm-8">
          <div class="row">
             <span class="medText" style="font-size: 40px">{{clientName}}</span>&nbsp;&nbsp;<span >Client#: </span><span class="nameStyle robotoLight">{{accountNo}}</span> &nbsp;&nbsp;<span style="font-size: 12px;">|</span>&nbsp;&nbsp;<span >Assigned Staff: </span><span class="nameStyle robotoLight">{{staffName}}</span>
           </div>
 		  <div class="row">
-			  <div class="col s12" style="position: relative; left: 1%;font-size: 14px">				
-	        	<table class="bordered centered responsive-table">
+			  <div class="col-sm-12" style="position: relative; left: 1%;font-size: 14px">				
+	        	<table class="table table-bordered table-responsive">
 					<thead style="background-color: rgba(0, 0, 0, 0.2)">
 	                    <th data-field="id">ID</th>
 	                    <th data-field="accountId">Account #</th>
@@ -24,7 +24,7 @@
 							<td>{{acc.accountNo}}</td>
 							<td>{{acc.productName}}</td>
 							<td ng-model="bal">{{acc.accountBalance}}</td>
-							<td><a href="#/processSavings" ui-sref="processSavings({accId: {{acc.id}} })" class="btn" ng-class="acc.status.active || acc.status.rejected ? 'red' : 'whiteBtn'">Debit</a></td>
+							<td><a href="#/processSavings" ui-sref="processSavings({accId: {{acc.id}} })" class="btn" ng-class="acc.status.active || acc.status.rejected ? 'btn-danger' : 'whiteBtn'">Debit</a></td>
 						</tr>
 					</tbody>
 				</table>
@@ -41,7 +41,7 @@
 		  </div>
 		  <script type="text/ng-template" id="/processSave.htm">
           <div class="row withMBox">
-            <form class="col s9" name="saveForm" ng-sumbit="submitSaveForm(saveForm.$valid)" novalidate>
+            <form class="col-sm-9" name="saveForm" ng-sumbit="submitSaveForm(saveForm.$valid)" novalidate>
               <div class="row" style="text-align: center;">
                 <span class="xlargeText robotoLight saveMon">Save Money From MM Account</span>
               </div>
@@ -49,17 +49,17 @@
                 <span class="xxlargeText robotoThin">Current Balance: {{accountBalance}}</span>
               </div>
               <div class="row">
-                <div class="input-field" ng-class="{'has-error': saveForm.amount.$invalid && !saveForm.amount.$pristine }">
-                  <i class="material-icons prefix">attach_money</i>
-                  <input name="amount" id="icon_prefix" type="number" ng-model="amount" ng-minlength="1" required>
+                <div class="input-group" ng-class="{'has-error': saveForm.amount.$invalid && !saveForm.amount.$pristine }">
+                  <i class="glyphicon glyphicon-usd"></i>
+                  <input name="amount" class="form-control" id="icon_prefix" type="number" ng-model="amount" ng-minlength="1" required>
                   <label for="icon_prefix">Enter Amount</label>
                    <p ng-show="(saveForm.amount.$invalid && !saveForm.amount.$pristine) && submitted" class="errorMsg">Amount is required.</p>
                 </div>
               </div>
               <div class="row">
-                <div class="input-field" ng-class="{ 'has-error': saveForm.phone.$invalid && !saveForm.phone.$pristine }">
-                  <i class="material-icons prefix">phone</i>
-                  <input name="phone" type="number" id="phoneNumber" ng-model="phoneNumber" ng-minlength="8" required>
+                <div class="input-group" ng-class="{ 'has-error': saveForm.phone.$invalid && !saveForm.phone.$pristine }">
+                  <i class="glyphicon glyphicon-earphone prefix"></i>
+                  <input name="phone" class="form-control" type="number" id="phoneNumber" ng-model="phoneNumber" ng-minlength="8" required>
                   <label for="icon_prefix">Phone Number</label>
                   <p ng-show="saveForm.phone.$error.minlength && submitted" class="errorMsg">Phone number is too short.</p>
                   <p ng-show="(saveForm.phone.$invalid && !saveForm.phone.$pristine) && submitted" class="errorMsg">Phone number is required.</p>
@@ -67,25 +67,31 @@
               </div>
               <br>
               <div class="row">
-                  <a class="btn waves-effect waves-light yellow lighten-1 left" ng-click="$root.goBack()" style="color: rgba(0, 0, 0, 0.6);">Cancel<i class="material-icons right">clear</i></a>
-                  <button class="btn waves-effect waves-light light-green darken-2 right" ng-click="submitSaveForm()">Submit<i class="material-icons right">send</i></button>
+                  <a class="btn btn-danger" ng-click="$root.goBack()" style="color: rgba(0, 0, 0, 0.6);">Cancel<i class="glyphicon glyphicon-remove"></i></a>
+                  <button class="btn btn-success" ng-click="submitSaveForm()">Submit<i class="glyphicon glyphicon-ok"></i></button>
               </div>
             </form>
           </div>
           <!-- Modal Structure -->
-            <div id="saveMoneyModal" class="modal">
-                <div class="modal-content">
-                  <h3 class="robotoThin" style="font-size: 25px;">Please wait....Processing request</h3>
-                </div>
-                <div class="modal-footer">
-                  <div class="progress">
-                    <div class="indeterminate"></div>
-                  </div>
-                </div>
+          <div id="saveMoneyModal" class="modal fade">
+                <div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-body">
+                  			<span class="robotoThin" style="font-size: 25px;">Please wait....Processing request</span>
+                		</div>
+                		<div class="modal-footer">
+                  			<div class="progress progress-striped active">
+  						   		<div class="progress-bar" role="progressbar" aria-valuenow="100" 
+									aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+  						   		</div>
+					   		</div>
+						</div>                	
+					</div>
+				</div>
             </div>
 	  	  </script>
         </div>
-        <div class="col s4 resetSize">
+        <div class="col-sm-4 resetSize">
           <div class="clientBox" style="width: 100%">
 			<div class="row" style="color: #1E88E5; text-decoration: underline;">
 				<center>{{clientName}}</center>

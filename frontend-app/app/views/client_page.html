@@ -1,36 +1,36 @@
-<div class="robotoReg" id="clientPageId">
+<div class="robotoReg container" id="clientPageId">
        <!-- spinner -->
-        <div class="sk-fading-circle spinner" ng-show="loading">
+        <div class="spinner" ng-show="loading">
 		  <img src="images/default.gif">
         </div>
       <div class="row" ng-hide="loading">
-        <div class="col s8">
+        <div class="col-sm-8">
           <div class="row">
             <span style="font-size: 25px">{{clientName}}</span>&nbsp;&nbsp;<span>Client#: <span class="nameStyle robotoLight">{{accountNo}}</span></span> &nbsp;&nbsp;<span style="font-size: 10px;">|</span>&nbsp;&nbsp;<span>Assigned Staff: <span class="nameStyle robotoLight">{{staffName}}</span></span>
           </div>
-          <div class="row" style="font-size: 15px">
+          <div style="font-size: 15px">
             <div class="row">
-              <a class="btn-large waves-effect waves-light  yellow lighten-1" ui-sref="withdrawMoney({id: (clientId), name: (clientName)})" href="#/withMoney/{{clientId}}" style="color: rgba(0, 0, 0, 0.6)">Withdraw Money Into MM account<i class="material-icons right">eject</i></a>
+              <a class="btn btn-lg btn-warning" ui-sref="withdrawMoney({id: (clientId), name: (clientName)})" href="#/withMoney/{{clientId}}" style="color: rgba(0, 0, 0, 0.6); width: 100%">Withdraw Money Into MM account<i class="glyphicon glyphicon-eject "></i></a>
             </div>
             <div class="row">
-              <a class="btn-large waves-effect waves-light orange lighten-1" href="#/loans/{{clientId}}">Loan Repayments<i class="material-icons right">receipt</i></a>
+              <a class="btn btn-lg btn-default" href="#/loans/{{clientId}}" style="width: 100%;">Loan Repayments<i class="glyphicon glyphicon-list-alt "></i></a>
             </div>
             <div class="row">
-              <a class="btn-large waves-effect waves-light blue darken-1" href="#/disburseLoans/{{clientId}}">Loan Disbursals<i class="material-icons right">import_export</i></a>
+              <a class="btn btn-lg btn-primary" href="#/disburseLoans/{{clientId}}" style="width: 100%;">Loan Disbursals<i class="glyphicon glyphicon-sort "></i></a>
             </div>
             <div class="row">
-              <a class="btn-large waves-effect waves-light blue lighten-1" href="#/saveMoney/{{clientId}}">Save Money From MM account<i class="material-icons right">payment</i></a>
+              <a class="btn btn-lg btn-primary" href="#/saveMoney/{{clientId}}" style="width: 100%;">Save Money From MM account<i class="glyphicon glyphicon-modal-window "></i></a>
             </div>
             <div class="row">
-              <a class="btn-large waves-effect waves-light green" href="#/sendMoney/{{clientId}}">Send Money through MM account<i class="material-icons right">reply</i></a>
+              <a class="btn btn-lg btn-success" href="#/sendMoney/{{clientId}}" style="width: 100%;">Send Money through MM account<i class="glyphicon glyphicon-arrow-left "></i></a>
             </div>
             <br>
-            <div class="row">
-              <a class="btn waves-effect waves-light red darken-1 subButton" ng-click="$root.goBack()">Cancel<i class="material-icons right">clear</i></a>
+            <div class="row" >
+              <a class="btn btn-danger subButton" ng-click="$root.goBack()">Cancel<i class="glyphicon glyphicon-remove "></i></a>
             </div>
           </div>
         </div>
-        <div class="col s4 resetSize">
+        <div class="col-sm-4 resetSize">
           <div class="clientBox" style="width: 100%">
 			<div class="row" style="color: #1E88E5; text-decoration: underline;">
 				<center>{{clientName}}</center>
@@ -38,7 +38,7 @@
             <div class="row">
               <center><img src="images/client-image-placeholder.png"></center>
             </div>
-            <div class="row summaryInfo" style="font-size: 15px">
+            <div class="summaryInfo" style="font-size: 15px">
               <div class="sumHead" style="text-align: center;">&nbsp;Client Information</div><br>
             	<span>Activation Date: <span class="robotoLight">&nbsp;{{activationDate}}</span></span><br>
             	<span>Staff Member: <span class="robotoLight">&nbsp;{{staffName}}</span></span><br>

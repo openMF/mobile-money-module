@@ -5,12 +5,12 @@
     <title></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
-    <link rel="stylesheet" type="text/css" href="styles/libs/materialize.min.css"/>
-    <link rel="stylesheet" href="styles/fonts/google-material/material.css" />
+    <link rel="stylesheet" type="text/css" href="styles/libs/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="styles/libs/bootstrap-theme.min.css"/>
     <link rel="stylesheet" type="text/css" href="styles/main.css"/>
     <link id="favicon" href="images/favicon.ico" rel="shortcut icon" />
   </head>
-  <body ng-app="mobileMoneyApp" class="robotoReg">
+  <body ng-app="mobileMoneyApp" class="robotoReg" style="margin-top: 80px">
 
     <div ng-include="'/views/navigation_bar.html'" ng-if="location.path() !== '/login'"></div>
     <div ui-view></div>
@@ -27,7 +27,7 @@
     <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
 	<script src="bower_components/angular-resource/angular-resource.js"></script>
 	<script src="bower_components/angularUtils-pagination/dirPagination.js"></script>
-    <script src="scripts/libs/materialize.min.js" ></script>
+    <script src="scripts/libs/bootstrap.min.js" ></script>
    
     <!-- controllers and services -->
     <script src="scripts/app.js"></script>

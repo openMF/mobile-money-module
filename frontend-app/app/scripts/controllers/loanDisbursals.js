@@ -55,27 +55,22 @@ angular.module('mobileMoneyApp')
 		
 		$rootScope.accountId = $stateParams.accId;
 		
-        $(document).ready(function(){
-          	$('.modal-trigger').leanModal();
-  			$('.collapsible').collapsible();
-        });
-		
 		$scope.disburseToSavings = function(){
-	        $('#loanDisbursalToSavings').openModal({
-	          dismissible: false,
-	          opacity: '.5'
+	        $('#loanDisbursalToSavings').modal({
+	          backgrop: "static",
+	          keyboard: false
 	        });
+	        
+	    $('#loanDisbursalToSavings').modal('show');
 			
-			loanFactory.disburseToSavingsProcess($rootScope.accountId, $rootScope.todayDate)
-				.then(function(response){
-                	Materialize.toast('Loan successfully disbursed to Savings account', 6000, 'rounded');
-					$('.lean-overlay').remove();
-                	$('#loanDisbursalToSavings').closeModal();
+	    loanFactory.disburseToSavingsProcess($rootScope.accountId, $rootScope.todayDate)
+			.then(function(response){
+				//	Materialize.toast('Loan successfully disbursed to Savings account', 6000, 'rounded');
+                $('#loanDisbursalToSavings').modal('hide');
 				}, function(error){
-                	Materialize.toast('Failure to disburse loans.No savings account has been configured for this', 6000, 'rounded');
-					$('.lean-overlay').remove();
-                	$('#loanDisbursalToSavings').closeModal();
-				});
+					//Materialize.toast('Failure to disburse loans.No savings account has been configured for this', 6000, 'rounded');
+                	$('#loanDisbursalToSavings').modal('hide');
+			});
 		};
 }])
 
@@ -96,10 +91,12 @@ angular.module('mobileMoneyApp')
 	  
 	  $scope.loanRequest = function(clientId){
 	  		// open modal when user submits valid form
-		  	$('#loanDisbursalToMoMo').openModal({
-		  		dismissible: false,
-				opacity: '.5'
+		  	$('#loanDisbursalToMoMo').modal({
+		  		backdrop: 'static',
+				keyboard: false
 		  	});
+		  	
+		  	$('#loanDisbursalToMoMo').modal('show');
 			
 			// make request to mobile money engine
 			// 1 - withdrawal
@@ -111,13 +108,12 @@ angular.module('mobileMoneyApp')
 					// update the platform of these changes
 					loanFactory.disburseToMoMo($rootScope.accountId, $scope.amount, $rootScope.todayDate)
 						.then(function(response){
-		                	Materialize.toast('Transaction success. Loan disbursed to Mobile money account', 6000, 'rounded');
-							$('.lean-overlay').remove();
-		                	$('#loanDisbursalToMoMo').closeModal();
+		         //       	Materialize.toast('Transaction success. Loan disbursed to Mobile money account', 6000, 'rounded');
+							
+		                	$('#loanDisbursalToMoMo').modal('hide');
 						}, function(){
-		                	Materialize.toast('Transaction failure. Loan not in disbursal state due to unapproval', 6000, 'rounded');
-							$('.lean-overlay').remove();
-		                	$('#loanDisbursalToMoMo').closeModal();
+		              //  	Materialize.toast('Transaction failure. Loan not in disbursal state due to unapproval', 6000, 'rounded');
+		                	$('#loanDisbursalToMoMo').modal('hide');
 						});
 				});
 	  };
