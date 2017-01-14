@@ -44,40 +44,24 @@ angular.module('mobileMoneyApp')
       $rootScope.urls = JSON.stringify($rootScope.urls);
 
       // open modal
-      $('#updateModal').openModal({
-          dismissible: false,
-          opacity: '.8'
-      });
+      $('#updateModal').modal({
+			backdrop: 'static',
+			keyboard: false
+		});
+	  $('#updateModal').modal('show');
+
       mobileMoneyFactory.settings($scope.region, $scope.country, $scope.display_name, $scope.org_phone, $scope.orgAcc_id,$rootScope.urls, $rootScope.params)
         .then(function(response){
             // close modal
-            $('.lean-overlay').remove();
-            $('#updateModal').closeModal();
-            Materialize.toast('configurations successful', 6000, 'rounded');
+            $('#updateModal').modal('hide');
         }, function(error){
-            $('.lean-overlay').remove();
-            $('#updateModal').closeModal();
-            Materialize.toast('configurations unsuccessful', 6000, 'rounded');
+            $('#updateModal').modal('hide');
             console.log("Error with configurations");
         });
     }
 
-  	 	// activate select form fields on UI
-  	 	$(document).ready(function(){
-        $('.modal-trigger').leanModal({
-          dismissible: false,
-          opacity: '.8',
-          out_duration: 5
-        });
-  	 	});
-
      $scope.goBack = function(){
-        // open modal
-        $('#cancelModal').openModal({
-            dismissible: false,
-            opacity: '.8'
-        });
-        window.history.back();
+    	window.history.back(); 
      };
      $scope.deny = function(){
         $window.location.reload();

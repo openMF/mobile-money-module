@@ -335,7 +335,30 @@ table {
 	background-color: white;
 	display: none;
 }
+
 .whiteBtn:hover{
 	color: grey;
 	background-color: white;
+}
+
+.navbar-inverse .navbar-nav > li > a:hover,
+.navbar-inverse .navbar-nav > li > a:focus {
+    color: #d1d1d1;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+	color: #fff
+}
+
+.navbar-inverse .navbar-nav > .open > a,
+.navbar-inverse .navbar-nav > .open > a:focus {
+	color: #fff;
+	background-color: #4c66a4;
+	background-image: none;
+}
+
+.row{
+	margin-right: auto; 
+	margin-left: auto; 
+	margin-bottom: 20px;
 }

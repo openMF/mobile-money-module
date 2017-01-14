@@ -6,7 +6,7 @@ angular.module('mobileMoneyApp')
 		
       $scope.loading = true;
 	  
-	  authFactory.getAuthKey("root", "@Admin123")
+	  authFactory.getAuthKey("mifos", "password")
 	  		.then(function(response){
 				var basicKey = response.data.base64EncodedAuthenticationKey;
 				authFactory.setBasicAuthKey(basicKey);

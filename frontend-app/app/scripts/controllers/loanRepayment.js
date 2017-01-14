@@ -49,12 +49,7 @@ angular.module('mobileMoneyApp')
 		function($rootScope, $scope, $http, $stateParams, mobileMoneyFactory, loanFactory){
 			$scope.submitted = true;
 			$rootScope.accountId = $stateParams.accId;
-	        // show modal when client submits form
-	        $(document).ready(function(){
-	          	$('.modal-trigger').leanModal();
-	  			$('.collapsible').collapsible();
-	        });
-			
+
 	        // function to submit the form after all form validation
 	        $scope.submitLoanForm = function(){
 				
@@ -67,11 +62,13 @@ angular.module('mobileMoneyApp')
 			
 			$scope.loanRepayments = function(clientId){
 				console.info(clientId);
-  	          // open the modal
-  	          $('#loanRepayModal').openModal({
-  	            dismissible: false,
-  	            opacity: '.5'
-  	          });
+  	            // open the modal
+				$('#loanRepayModal').modal({
+					keyboard: false,
+					backdrop: 'static'
+  	          	});
+			  
+				$('#loanRepayModal').modal('show');
 			  
 			  // make request to mobile money engine
 			  $scope.accountId = "4904123";
@@ -79,20 +76,17 @@ angular.module('mobileMoneyApp')
 			  	.then(function(response){
 			  		loanFactory.loanRepayments($rootScope.accountId, $scope.amount, $rootScope.todayDate);
 					
-		            // close the modal and clean up 
-		            Materialize.toast('Transaction successful', 6000, 'rounded');
+		            
 		            $scope.cleanUp();
 			  	}, function(error){
-		            // close the modal and clean up 
+		            
 					$scope.cleanUp();
-		            Materialize.toast('Transaction unsuccessful', 6000, 'rounded');
 			  	});
 			};
 			
 	        // function to clean up
 	        $scope.cleanUp = function(){
-			  $('.lean-overlay').remove();
-	          $('#loanRepayModal').closeModal();
+	          $('#loanRepayModal').modal('hide');
 	          $scope.amount = '';
 	          $scope.phoneNumber = '';
 	        };

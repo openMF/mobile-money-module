@@ -1,15 +1,15 @@
 <div>
-      <div id="dynamicContent" class="container robotoReg colorGrey row box">
+      <div id="dynamicContent" class="container robotoReg colorGrey box">
         <div class="row">
-          <div class="col s12 extraLargeText header">
+          <div class="col-sm-12 extraLargeText header">
             M O B I L E&nbsp;&nbsp;&nbsp;M O N E Y
           </div>
         </div>
         <div class="row">
-          <div class="col s4">
+          <div class="col-sm-4">
             <img src="./images/MifosX_logo.png">
           </div>
-          <div class="col s8">
+          <div class="col-sm-8">
             <h4>Mifos X Mobile Money Application</h4>
             <p class="smallText">
               Version 01.00.01.RELEASE <br />
@@ -22,21 +22,25 @@
         <div class="spinner" ng-show="loading">
   			<img src="images/cubic_loader.gif">
         </div>
-        <div class="row loginFormStyle">
-          <form class="col s10" name="loginForm" ng-submit="submitLoginForm(loginForm.$valid)" novalidate>
-            <div class="input-field col s5" ng-class="{'has-error': loginForm.username.$invalid && !loginForm.username.$pristine }">
-              <i class="material-icons prefix colorBlack">perm_identity</i>
-              <input placeholder="username" id="username" name="username" ng-model="username" type="text" required>
-              <p ng-show="(loginForm.username.$invalid && !loginForm.username.$pristine) && submitted" style="color: red; font-size: 12px">Username is required.</p>
+        <div class="loginFormStyle">
+          <form class="col-sm-10" name="loginForm" ng-submit="submitLoginForm(loginForm.$valid)" novalidate style="display : inline-flex">
+	        <div class="input-group" ng-class="{'has-error': loginForm.username.$invalid && !loginForm.username.$pristine }">
+		        <div style="display: inline-flex">
+		  	    	<i class="glyphicon glyphicon-user colorBlack" style="margin-top: 8px; margin-right: 7px"></i>
+		          	<input placeholder="username" class="form-control col-sm-5" id="username" name="username" ng-model="username" type="text" required>
+	            </div>
+	        	<p ng-show="(loginForm.username.$invalid && !loginForm.username.$pristine) && submitted"  style="color: red; font-size: 12px; margin-left: 20px">Username is required.</p>
             </div>
-            <div class="input-field col s5" ng-class="{'has-error': loginForm.password.$invalid && !loginForm.password.$pristine }">
-              <i class="material-icons prefix colorBlack">vpn_key</i>
-              <input placeholder="password" id="password" name="password" ng-model="password" type="password" required>
-              <p ng-show="(loginForm.password.$invalid && !loginForm.password.$pristine) && submitted" style="color: red; font-size: 12px">Password is required.</p>
+	        <div class="input-group" ng-class="{'has-error': loginForm.password.$invalid && !loginForm.password.$pristine }" style="margin-left: 20px;">
+	        	<div style="display: inline-flex">
+	            	<i class="glyphicon glyphicon-pencil colorBlack" style="margin-top: 8px; margin-right: 7px"></i>
+	        		<input placeholder="password" class="form-control	col-sm-5" id="password" name="password" ng-model="password" type="password" required>
+            	</div>
+	        	<p ng-show="(loginForm.password.$invalid && !loginForm.password.$pristine) && submitted" style="color: red; font-size: 12px; margin-left: 20px">Password is required.</p>            	
             </div>
-	        <div class="row">
+	        <div class="input-group">
+	          <a class="btn btn-success" ngEnter="submitLoginForm()" ng-click="submitLoginForm()" style="margin-left:30%">Sign In</a>
 	          <br><p class="errorMsg" ng-show="!loginSuccessful && submitted">Username or Password incorrect</p>
-	          <a class="btn waves-effect waves-light green subButton" ngEnter="submitLoginForm()" ng-click="submitLoginForm()">Sign In</a>
 	        </div>
           </form>
         </div>    

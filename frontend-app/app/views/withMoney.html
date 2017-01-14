@@ -3,20 +3,20 @@
         <div class="spinner" ng-show="loading">
 		  <img src="images/default.gif">
         </div>
-      <div class="row" ng-hide="loading">
-        <div class="col s8">
-         <div class="row">
+      <div ng-hide="loading">
+        <div class="col-sm-8">
+         <div>
             <span class="medText" style="font-size: 40px;">{{clientName}}</span>&nbsp;&nbsp;<span>Client#: <span class="nameStyle robotoLight">{{accountNo}}</span></span> &nbsp;&nbsp;<span style="font-size: 12px;">|</span>&nbsp;&nbsp;Assigned Staff: <span class="nameStyle robotoLight">{{staffName}}</span></span>
-          </div>
+         </div>
 		  <div class="row">
-			  <div class="col s12" style="position: relative; left: 1%;font-size: 14px">				
-	        	<table class="bordered centered responsive-table">
+			  <div class="col-sm-12" style="position: relative; left: 1%;font-size: 14px">				
+	        	<table class="table table-bordered table-responsive">
     					<thead style="background-color: rgba(0, 0, 0, 0.2)">
-      	         <th data-field="id">ID</th>
-      	         <th data-field="accountId">Account #</th>
-      					 <th data-field="name">Account Name</th>
-      					 <th data-field="balance">Account Balance</th>
-      					 <th data-field="button">Action<th>
+      	         			<th data-field="id">ID</th>
+      	         			<th data-field="accountId">Account #</th>
+      					 	<th data-field="name">Account Name</th>
+      					 	<th data-field="balance">Account Balance</th>
+      					 	<th data-field="button">Action<th>
     					</thead>
     					<tbody>
     						<tr dir-paginate="acc in savingsAccounts|itemsPerPage: 5" class="pointer tableHover">
@@ -24,7 +24,7 @@
     							<td>{{acc.accountNo}}</td>
     							<td>{{acc.productName}}</td>
     							<td ng-model="bal">{{acc.accountBalance}}</td>
-    							<td><a href="#/processWithdrawals" ui-sref="processWithdrawals({accId: {{acc.id}} })" class="btn" ng-class="acc.status.active || acc.status.rejected ? 'red' : 'whiteBtn'">Debit</a></td>
+    							<td><a href="#/processWithdrawals" ui-sref="processWithdrawals({accId: {{acc.id}} })" class="btn" ng-class="acc.status.active || acc.status.rejected ? 'btn-danger' : 'whiteBtn'">Debit</a></td>
     						</tr>
     					</tbody>
 				    </table>	
@@ -43,7 +43,7 @@
 		  <!-- Partial view -->
 		  <script type="text/ng-template" id="/processWith.htm">
           	<div class="row withMBox">
-            <form class="col s8" name="withForm" ng-submit="submitForm(withForm.$valid)" novalidate>
+            <form class="col-sm-8" name="withForm" ng-submit="submitForm(withForm.$valid)" novalidate>
               <div class="row" style="text-align: center;">
                 <span class="xlargeText robotoLight withHHead">Withdraw Money Into MM Account From MFI account</span>
               </div>
@@ -51,17 +51,17 @@
                 <span class="xlargeText robotoThin">Current Balance: {{accountBalance}}</span>
               </div>
               <div class="row">
-                <div class="input-field" ng-class="{'has-error': withForm.amount.$invalid && !withForm.amount.$pristine }">
-                  <i class="material-icons prefix">attach_money</i>
-                  <input name="amount" id="icon_prefix" ng-model="amount" type="number" ng-minlength="1" required>
+                <div class="input-group" ng-class="{'has-error': withForm.amount.$invalid && !withForm.amount.$pristine }">
+                  <i class="glyphicon glyphicon-usd prefix"></i>
+                  <input name="amount" class="form-control" id="icon_prefix" ng-model="amount" type="number" ng-minlength="1" required>
                   <label for="icon_prefix">Enter Amount</label>
                   <p ng-show="(withForm.amount.$invalid && !withForm.amount.$pristine) && submitted" class="errorMsg">Amount is required.</p>
                 </div>
               </div>
               <div class="row">
-                <div class="input-field" ng-class="{ 'has-error': withForm.phone.$invalid && !withForm.phone.$pristine }">
-                  <i class="material-icons prefix">phone</i>
-                  <input name="phone" type="number" id="phoneNumber" ng-model="phoneNumber" ng-minlength="8" required>
+                <div class="input-group" ng-class="{ 'has-error': withForm.phone.$invalid && !withForm.phone.$pristine }">
+                  <i class="glyphicon glyphicon-earphone prefix"></i>
+                  <input name="phone" type="number" class="form-control" id="phoneNumber" ng-model="phoneNumber" ng-minlength="8" required>
                   <label for="icon_prefix">Phone Number</label>
                   <p ng-show="withForm.phone.$error.minlength && submitted" class="errorMsg">Phone number is too short.</p>
                   <p ng-show="(withForm.phone.$invalid && !withForm.phone.$pristine) && submitted" class="errorMsg">Phone number is required.</p>
@@ -69,34 +69,38 @@
               </div>
               <br><br>
               <div class="row">
-                  <a class="btn waves-effect waves-light red darken-1 left" ng-click="$root.goBack()">Cancel<i class="material-icons right">clear</i></a>
-                  <button class="btn waves-effect waves-light light-green darken-2 right">Submit<i class="material-icons right">send</i></button>
+                  <a class="btn btn-danger" ng-click="$root.goBack()">Cancel<i class="glyphicon glyphicon-remove"></i></a>
+                  <button class="btn btn-success">Submit<i class="glyphicon glyphicon-ok"></i></button>
               </div>
             </form>
           </div>
           <!-- Modal Structure -->
-           <div id="withModal" class="modal" style="z-index: 1000">
+           <div id="withModal" class="modal fade" style="z-index: 1000; width: 30%;>
                <div class="modal-content">
-                 <span class="robotoThin" style="font-size: 25px;">Please wait....Processing request</span>
-               </div>
-               <div class="modal-footer">
-                 <div class="progress">
-                   <div class="indeterminate"></div>
-                 </div>
-               </div>
+			       <div class="modal-body`">
+                     <span class="robotoThin" style="font-size: 25px;">Please wait....Processing request</span>
+                   </div>
+                   <div class="modal-footer">                     
+					   <div class="progress progress-striped active">
+  						   <div class="progress-bar" role="progressbar" aria-valuenow="100" 
+									aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+  						   </div>
+					   </div>
+                   </div>
+			   </div>
            </div>
 	  	  </script>
 		  <!-- End of partial view -->
         </div>
-        <div class="col s4 resetSize">
+        <div class="col-sm-4 resetSize">
           <div class="clientBox" style="width: 100%">
-			<div class="row" style="color: #1E88E5; text-decoration: underline;">
+			<div style="color: #1E88E5; text-decoration: underline;">
 				<center>{{clientName}}</center>
 			</div>
-            <div class="row">
+            <div>
               <center><img src="images/client-image-placeholder.png"></center>
             </div>
-            <div class="row summaryInfo" style="font-size: 15px">
+            <div class="summaryInfo" style="font-size: 15px">
               <div class="sumHead" style="text-align: center;">&nbsp;Client Information</div><br>
             	<span>Activation Date: <span class="robotoLight">&nbsp;{{activationDate}}</span></span><br>
             	<span>Staff Member: <span class="robotoLight">&nbsp;{{staffName}}</span></span><br>

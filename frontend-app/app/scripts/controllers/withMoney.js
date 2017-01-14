@@ -73,14 +73,16 @@ angular.module('mobileMoneyApp')
 		$scope.withMoneyRequest = function(clientId){
 			// decide which modal to open
 			if($state.current.url == "/processTransfer"){
-				$('#sendMoneyModal').openModal({
-					dismissible: false,
-					opacity: '.5'
+				$('#sendMoneyModal').modal({
+					keyboard: false,
+					backdrop: 'static',
+					show: true
 				});
 			} else {
 				$('#withModal').openModal({
-					dismissible: false,
-					opacity: '.5'
+					keyboard: false,
+					backdrop: 'static',
+					show: true
 				});
 			}
 			
@@ -98,13 +100,11 @@ angular.module('mobileMoneyApp')
 			                    utilFactory.withdrawals($rootScope.accountId, $scope.amount, $rootScope.todayDate)
 			                        .then(function(response){
 			                            // close the modal and clean up 
-			                            Materialize.toast('Transaction successful', 6000, 'rounded');
-			                            $('#sendMoneyModal').closeModal();
+			                            $('#sendMoneyModal').modal('hide');
 			                            $scope.amount = '';
 			                            $scope.phoneNumber = '';
 			                        }, function(error){
-			                            Materialize.toast('Transaction unsuccessful', 6000, 'rounded');
-			                            $('#sendMoneyModal').closeModal();
+			                            $('#sendMoneyModal').modal('hide');
 			                            $scope.amount = '';
 			                            $scope.phoneNumber = '';
 			                        });
@@ -114,18 +114,16 @@ angular.module('mobileMoneyApp')
 						.then(function(response){
 							console.info("Processing withdrawal mobile money transaction");
 				            // close the modal and clean up 
-				            Materialize.toast('Transaction successful', 6000, 'rounded');
 				            $scope.cleanUp();
 						}, function(error){
 				            // close the modal and clean up 
 							$scope.cleanUp();
-				            Materialize.toast('Transaction unsuccessful', 6000, 'rounded');
 						});
 					}
 				}, function(error){
 					// close the modal and clean up 
 					$scope.cleanUp();
-					$('#sendMoneyModal').closeModal();
+					$('#sendMoneyModal').modal('hide');
 			        $scope.amount = '';
 			        $scope.phoneNumber = '';
 			        $scope.rec_name = '';
@@ -137,7 +135,7 @@ angular.module('mobileMoneyApp')
         // function to clean up
         $scope.cleanUp = function(){
 		  console.info("Process completed. Cleaning up now");
-          $('#withModal').closeModal();
+          $('#withModal').modal('hide');
           $scope.amount = '';
           $scope.phoneNumber = '';
         };

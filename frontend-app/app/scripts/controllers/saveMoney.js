@@ -47,12 +47,7 @@ angular.module('mobileMoneyApp')
   }])
   .controller('processSaveCtrl', ['$rootScope', '$scope', '$stateParams', '$state', 'mobileMoneyFactory', 'utilFactory',
   	function($rootScope, $scope, $stateParams, $state, mobileMoneyFactory, utilFactory){
-        // show modal when client submits form
-        $(document).ready(function(){
-          $('.modal-trigger').leanModal();
-  		    $('.collapsible').collapsible();
-        });
-
+    
         $scope.submitted = true;
 		    $rootScope.accountId = $stateParams.accId;
 		
@@ -66,11 +61,12 @@ angular.module('mobileMoneyApp')
         };
 		
 		$scope.saveMoneyRequest = function(clientId){
-      // open modal
-      $('#saveMoneyModal').openModal({
-        dismissible: false,
-        opacity: '.5'
-      });
+		// open modal
+		$('#saveMoneyModal').modal({
+			backdrop: 'static',
+			keyboard: false
+		});
+		$('#saveMoneyModal').modal('show');
 
 			$scope.accountId = "4904123";
 			mobileMoneyFactory.transactions($scope.phoneNumber, $scope.amount, clientId, $scope.accountId, 2)
@@ -81,11 +77,11 @@ angular.module('mobileMoneyApp')
 					utilFactory.savings($rootScope.accountId, $scope.amount, $rootScope.todayDate)
 						.then(function(response){
 			  			  	// close the modal and clean up 
-			            Materialize.toast('Transaction successful', 6000, 'rounded');
+							// Materialize.toast('Transaction successful', 6000, 'rounded');
 			            $scope.cleanUp();
 						}, function(error){
 			                // close the modal and clean up 
-			                Materialize.toast('Transaction unsuccessful', 6000, 'rounded');
+			                //  Materialize.toast('Transaction unsuccessful', 6000, 'rounded');
 			                $scope.cleanUp();
 						})
 				}, function(error){});
@@ -93,8 +89,8 @@ angular.module('mobileMoneyApp')
 		
         // function to clean up
         $scope.cleanUp = function(){
-          console.info("Transaction processing complete. Cleaning up now");
-          $('#saveMoneyModal').closeModal();
+         // console.info("Transaction processing complete. Cleaning up now");
+          $('#saveMoneyModal').modal('hide');
           $scope.amount = '';
           $scope.phoneNumber = '';
         };

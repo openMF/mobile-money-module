@@ -6,7 +6,7 @@ angular.module('mobileMoneyApp')
 	.factory('authFactory', ['$http',
 		function($http){
 		
-		var baseUrl = "https://163.172.164.116/fineract-provider/api/v1/";
+		var baseUrl = "https://demo.openmf.org/fineract-provider/api/v1/";
 		var authFactory = {};
 		
 		authFactory.getAuthKey = function(username, password){
@@ -34,7 +34,7 @@ angular.module('mobileMoneyApp')
 	/* factory to get client data */
 	.factory('dataFactory', ['$http', function($http){
 		
-		var urlBase = "https://163.172.164.116/fineract-provider/api/v1/";
+		var urlBase = "https://demo.openmf.org/fineract-provider/api/v1/";
 		var dataFactory = {};
 		
 		dataFactory.getAllClients = function(){
@@ -100,7 +100,7 @@ angular.module('mobileMoneyApp')
 		};
 		
 		utilFactory.withdrawals = function(accountId, amount, dateToUse){
-				var url = "https://163.172.164.116/fineract-provider/api/v1/savingsaccounts/" + accountId
+				var url = "https://demo.openmf.org/fineract-provider/api/v1/savingsaccounts/" + accountId
 					 + "/transactions?command=withdrawal";
 
 		      	return $http({
@@ -122,7 +122,7 @@ angular.module('mobileMoneyApp')
 			};
 			
 			utilFactory.savings = function(accountId, amount, dateToUse){
-				var url = "https://163.172.164.116/fineract-provider/api/v1/savingsaccounts/" + accountId 
+				var url = "https://demo.openmf.org/fineract-provider/api/v1/savingsaccounts/" + accountId 
 					+ "/transactions?command=deposit";
 
 		      	return $http({
@@ -149,7 +149,7 @@ angular.module('mobileMoneyApp')
 	/* factory for loan repayment */
 	.factory('loanFactory', ['$http', function($http){
 		
-		var baseUrl = "https://163.172.164.116/fineract-provider/api/v1/";
+		var baseUrl = "https://demo.openmf.org/fineract-provider/api/v1/";
 		var loanFactory = {};
 		
 		loanFactory.disburseToSavingsProcess = function(accountId, disburseDate){
