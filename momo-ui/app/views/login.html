@@ -1,0 +1,65 @@
+<div class="container" id="loginDialog">
+  <div class="row">
+    <div class="col s12 extraLargeText margin10">
+      <center>
+        M O B I L E&nbsp;&nbsp;&nbsp;W A L L E T
+      </center>
+    </div>
+  </div>
+  <div class="row" style="position: relative; top: 20px; left: 2%; padding: 20px; ">
+    <div class="col s5 container">
+      <div class="row" style="text-align: center;">
+        <img height=150" width="200" src="images/MifosX_logo.png">
+      </div>
+      <div class="row">
+        <p style="text-align: center">
+          This Mobile Money wallet allows for transactions on the Mifos platform to be carried out using any mobile money of your choice.
+        </p>
+      </div>
+    </div>
+    <div class="col s5">
+      <div class="row" style="position: relative; left: 25%;">
+        <form name="LoginForm" ng-submit="submitLoginForm(LoginForm.$valid)" class="col s12">
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="username" type="text" class="validate inputFields" required ng-model="username">
+              <label for="username" style="font-size: 15px; padding-left: 2%;">User Name</label>
+            </div>
+            <p ng-show="LoginForm.username.$invalid && !LoginForm.username.$pristine" class="help-block">You username is required.</p>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="password" type="password" class="validate" required ng-model="password" ng-minlength="5">
+              <label for="password" style="font-size: 15px; padding-left: 2%;">Password</label>
+            </div>
+            <p ng-show="LoginForm.password.$invalid && !LoginForm.password.$pristine" class="help-block">You password is required.</p>
+            <p ng-show="LoginForm.password.$error.minlength" class="help-block">Your password is too short.</p>
+          </div>
+          <div class="row">
+            <center>
+              <div class="spinner" ng-show="loading">
+                <img src="images/cubic_loader.gif">
+              </div>
+            </center>
+          </div>
+          <div class="row" ng-show="errorCreds">
+            <center>
+              <p class="help-block">{{errorMsg}}</p>
+            </center>
+          </div>
+          <div class="row">
+            <center>
+              <button type="submit" ng-disabled="LoginForm.$invalid" class="waves-effect waves-light btn blue lighten-2">
+                Login
+                <i class="icon ion-android-share"></i>
+              </button>
+            </center>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="row" style="text-align: center; position: relative; top: 10px;">
+    <a>Powered by Mifos &copy;2017</a>
+  </div>
+</div>

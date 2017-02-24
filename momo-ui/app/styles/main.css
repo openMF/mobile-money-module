@@ -1,0 +1,127 @@
+@font-face {
+  font-family: 'Roboto-Light';
+  src: local('?'),
+  url('fonts/Roboto/Roboto-Light.ttf') format('truetype');
+  font-weight: light;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Roboto-Thin';
+  src: local('?'),
+  url('fonts/Roboto/Roboto-Thin.ttf') format('truetype');
+  font-weight: thin;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Roboto-Regular';
+  src: local('?'),
+  url('fonts/Roboto/Roboto-Regular.ttf') format('truetype');
+  font-weight: thin;
+  font-style: normal;
+}
+.robotoReg{
+  font-family: 'Roboto-Regular';
+}
+.robotoLight{
+  font-family: 'Roboto-Light';
+}
+.robotoThin{
+  font-family: 'Roboto-Thin';
+}
+body{
+  font-size: 14px;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
+#username, #password, #search, #phone, #amount, #disbursedOn, #notes{
+  padding-left: 5px;
+  border: 1px solid #64b5f6
+}
+
+#loginDialog {
+  position: relative;
+  top: 80px;
+  left: 0%;
+  width: 60%;
+  height: 70%;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.24), 0 5px 10px rgba(0, 0, 0, 0.48);
+}
+
+.extraLargeText {
+  font-size: 45px;
+}
+.largeText { font-size: 25px; }
+
+.margin10 {
+  margin: 10px;
+}
+
+.help-block {
+  font-size: 14px;
+  color: red;
+  text-align: center;
+}
+
+#loader {
+  position: relative;
+  top: 210px;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.clients {}
+
+.clients:hover {
+  background-color: #4885ed;
+  color: white;
+}
+
+.icon-size-large { font-size: 48px; }
+
+.sideBar {
+  font-size: 16px;
+  width:100%;
+  height:1000px;
+  background-color: #4885ed;
+  color: #fff;
+}
+
+.scrollFix {  overflow: auto;  }
+
+.sideMargin {
+  margin-bottom: 18px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.sideMargin:hover {  background-color: #64b5f6;  }
+
+.topify-medium {
+  position: relative;
+  top: 20px;
+}
+.topify-large {
+  position: relative;
+  top: 60px;
+}
+
+.whiteBtn {
+  color: grey;
+  background-color: white;
+  display: none;
+}
+
+.whiteBtn:hover{
+  color: grey;
+  background-color: white;
+}
+
+dir-pagination-controls{
+  color: white;
+  background-color: #4885ed;
+}
+
