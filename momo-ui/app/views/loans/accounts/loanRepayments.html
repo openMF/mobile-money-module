@@ -1,0 +1,50 @@
+<div class="row">
+  <div class="row" ng-show="loading" id="loader">
+    <center>
+      <div class="spinner">
+        <img src="images/small-loader.gif">
+      </div>
+    </center>
+  </div>
+  <div class="row">
+    <div class="row">
+      <div class="col-sm-12" style="position: relative; left: 1%;">
+        <table class="table table-bordered table-responsive" style="font-size:14px;">
+          <thead style="background-color: rgba(0, 0, 0, 0.2);">
+          <th data-field="id">ID</th>
+          <th data-field="accountId">Account #</th>
+          <th data-field="name">Account Name</th>
+          <th data-field="originalLoan">Original Loan</th>
+          <th data-field="balance">Loan Balance</th>
+          <th data-field="paid">Amount Paid</th>
+          <th data-field="button">Action<th>
+          </thead>
+          <tbody>
+          <tr dir-paginate="acc in loanAccounts|itemsPerPage: 5" class="pointer tableHover">
+            <td>{{acc.id}}</td>
+            <td>{{acc.accountNo}}</td>
+            <td>{{acc.productName}}</td>
+            <td>{{acc.originalLoan}}</td>
+            <td>{{acc.loanBalance}}</td>
+            <td>{{acc.amountPaid}}</td>
+            <td>
+              <a ui-sref="main.repayments({accId: {{acc.id}} })" class="btn green lighten-1" ng-show="acc.status.active && !acc.status.closed && !acc.status.waitingForDisbursal && !acc.status.pendingApproval">
+                Credit
+              </a>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+        <div>
+          <center>
+            <dir-pagination-controls
+              max-size="10"
+              direction-links="true"
+              boundary-links="true" >
+            </dir-pagination-controls>
+          </center>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

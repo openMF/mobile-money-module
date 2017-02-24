@@ -1,0 +1,40 @@
+<div class="row">
+  <div class="row">
+
+  </div>
+  <div class="row">
+    <div class="col-sm-12" style="position: relative; left: 1%;font-size: 14px">
+      <table class="table table-bordered table-responsive">
+        <thead style="background-color: rgba(0, 0, 0, 0.2)">
+        <th data-field="id">ID</th>
+        <th data-field="accountId">Account #</th>
+        <th data-field="name">Account Name</th>
+        <th data-field="balance">Account Balance</th>
+        <th data-field="button">Action<th>
+        </thead>
+        <tbody>
+        <tr dir-paginate="acc in savingsAccounts|itemsPerPage: 5" class="pointer tableHover">
+          <td>{{acc.id}}</td>
+          <td>{{acc.accountNo}}</td>
+          <td>{{acc.productName}}</td>
+          <td ng-model="bal">{{acc.accountBalance}}</td>
+          <td>
+            <a ui-sref="main.withdrawals({accId: {{acc.id}} })" class="btn red lighten-2" ng-show="!acc.status.approved && acc.status.active && !acc.status.rejected && !acc.status.submittedAndPendingApproval">
+              Withdraw
+            </a>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+      <div>
+        <center>
+          <dir-pagination-controls
+            max-size="10"
+            direction-links="true"
+            boundary-links="true" >
+          </dir-pagination-controls>
+        </center>
+      </div>
+    </div>
+  </div>
+</div>

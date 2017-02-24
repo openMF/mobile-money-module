@@ -1,0 +1,70 @@
+<div class="row">
+  <div class="col s2 sideBar">
+    <ul>
+      <li class="sideMargin" ui-sref="clients" style="cursor: pointer">
+        <a style="color: #fff">
+          <i class="icon ion-ios-people"></i>
+          Clients
+        </a>
+      </li>
+      <li class="sideMargin" ui-sref="main.loans" style="cursor: pointer">
+        <a style="color: #fff">
+          <i class="icon ion-cash"></i>
+          Loans
+        </a>
+      </li>
+      <li class="sideMargin" ui-sref="main.savings" style="cursor: pointer">
+        <a style="color: #fff">
+          <i class="icon ion-ios-pulse-strong"></i>
+          Savings
+        </a>
+      </li>
+      <li class="sideMargin" ui-sref="main.transactions" style="cursor: pointer">
+        <a style="color: #fff">
+          <i class="icon ion-clock"></i>
+          Transactions
+        </a>
+      </li>
+      <li class="sideMargin" ui-sref="main.configurations" style="cursor: pointer">
+        <a style="color: #fff">
+          <i class="icon ion-ios-cog"></i>
+          Configurations
+        </a>
+      </li>
+      <li class="sideMargin">
+        <a ui-sref="login" style="color: #fff" ng-click="logout()">
+          <i class="icon ion-coffee"></i>
+          Logout
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="col s10" class="scrollFix">
+    <div class="row">
+      <div class="row">
+        <div class="row topify-medium">
+          <span style="font-size: 20px; color: #64b5f6">
+            <span style="color: black" class="robotoLight">
+              <i class="icon ion-person"></i>
+              Client Name:
+            </span> {{ name }}
+          </span> | &nbsp;&nbsp;
+          <span style="font-size: 20px; color: #64b5f6">
+            <span style="color: black" class="robotoLight">
+              <i class="icon ion-pound"></i>
+              Account Number:
+            </span> {{ account }}
+          </span> | &nbsp;&nbsp;
+          <span style="font-size: 20px; color: #64b5f6">
+            <span style="color: black" class="robotoLight">
+              <i class="icon ion-person-stalker"></i>
+              Staff:
+            </span>{{ staff }}
+          </span>
+          <hr>
+        </div>
+      </div>
+      <div ui-view></div>
+    </div>
+  </div>
+</div>

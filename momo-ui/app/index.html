@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/libs/ionicons.css">
+    <link rel="stylesheet" href="styles/libs/materialize.css">
+  </head>
+  <body ng-app="momoUiApp">
+
+  <div ng-include="'/views/includes/navigation.html'" ng-if="location.path() !== '/login'"></div>
+  <div ui-view=""></div>
+
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="scripts/libs/jquery-2.1.4.min.js"></script>
+    <script src="scripts/libs/angular.js"></script>
+    <script src="scripts/libs/angular-animate.js"></script>
+    <script src="scripts/libs/angular-cookies.js"></script>
+    <script src="scripts/libs/angular-resource.js"></script>
+    <script src="scripts/libs/angular-route.js"></script>
+    <script src="scripts/libs/angular-sanitize.js"></script>
+    <script src="scripts/libs/angular-touch.js"></script>
+    <script src="scripts/libs/angular-ui-router.js"></script>
+    <script src="scripts/libs/materialize.min.js"></script>
+    <script src="scripts/libs/dirPagination.js"></script>
+
+        <script src="scripts/app.js"></script>
+        <script src="scripts/controllers/index.js"></script>
+        <script src="scripts/controllers/main.js"></script>
+        <script src="scripts/controllers/about.js"></script>
+        <script src="scripts/controllers/login.js"></script>
+        <script src="scripts/controllers/clients.js"></script>
+        <script src="scripts/controllers/includes/navigation.js"></script>
+        <script src="scripts/controllers/configurations.js"></script>
+        <script src="scripts/controllers/transactions.js"></script>
+
+        <!-- loans -->
+        <script src="scripts/controllers/loans/loans.js"></script>
+        <script src="scripts/controllers/loans/disbursals.js"></script>
+        <script src="scripts/controllers/loans/repayments.js"></script>
+        <script src="scripts/controllers/loans/application.js"></script>
+        <script src="scripts/controllers/loans/accounts/loanDisbursals.js"></script>
+        <script src="scripts/controllers/loans/accounts/loanRepayments.js"></script>
+
+        <!-- savings -->
+        <script src="scripts/controllers/savings/savings.js"></script>
+        <script src="scripts/controllers/savings/deposits.js"></script>
+        <script src="scripts/controllers/savings/withdrawals.js"></script>
+        <script src="scripts/controllers/savings/accounts/depositAccounts.js"></script>
+        <script src="scripts/controllers/savings/accounts/withdrawalAccounts.js"></script>
+
+        <!-- Services -->
+        <script src="scripts/services/AuthService.js"></script>
+        <script src="scripts/services/MifosService.js"></script>
+        <script src="scripts/services/MomoService.js"></script>
+
+</body>
+</html>

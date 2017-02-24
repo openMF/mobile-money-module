@@ -1,0 +1,53 @@
+<div class="row">
+  <div class="row" ng-show="loading" id="loader">
+    <center>
+      <div class="spinner">
+        <img src="images/small-loader.gif">
+      </div>
+    </center>
+  </div>
+  <div class="row" ng-hide="loading">
+    <div class="row container">
+      <!-- search bar -->
+      <div class="input-field col s12">
+        <i class="icon ion-ios-search icon-size-large prefix"></i>
+        <input id="search" type="text" placeholder="Search client by name">
+      </div>
+    </div>
+    <div class="row container">
+      <table>
+        <thead style="background-color: rgba(0, 0, 0, 0.2)">
+          <tr>
+            <th data-field="id">ID</th>
+            <th data-field="name">Name</th>
+            <th data-field="client_id">Client #</th>
+            <th data-field="external_id">External ID</th>
+            <th data-field="office">Office</th>
+            <th data-field="staff">Staff</th>
+          </tr>
+        </thead>
+
+        <tbody>
+        <tr ui-sref="main.loans({id: (client.id)})" dir-paginate="client in clients|itemsPerPage: 10"
+            class="pointer robotoReg clients"
+            style="font-size: 15px; font-weight: 600;">
+          <td>{{client.id}}</td>
+          <td>{{client.displayName}}</td>
+          <td>{{client.accountNo}}</td>
+          <td>{{client.externalId}}</td>
+          <td>{{client.officeName}}</td>
+          <td>{{client.staffName}}</td>
+        </tr>
+      </table>
+      <div id="paginationThings">
+        <center>
+          <dir-pagination-controls
+            max-size="10"
+            direction-links="true"
+            boundary-links="true">
+          </dir-pagination-controls>
+        </center>
+      </div>
+    </div>
+  </div>
+</div>

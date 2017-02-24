@@ -1,0 +1,59 @@
+<div class="row">
+  <div class="row">
+
+  </div>
+  <div class="row">
+    <div class="col s7" style="position: relative; left: 20%">
+      <form name="RepaymentForm" ng-submit="submitRepaymentForm(RepaymentForm.$valid)" class="col s12">
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="repayedOn" type="text" class="validate inputFields" required>
+            <label for="repayedOn" style="font-size: 15px; padding-left: 2%;">Date of Repayment</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="amount" type="text" class="validate" required>
+            <label for="amount" style="font-size: 15px; padding-left: 2%;">Transaction Amount</label>
+          </div>
+          <p ng-show="RepaymentForm.amount.$invalid && !RepaymentForm.amount.$pristine" class="help-block">Amount is required</p>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="phone" type="text" class="validate" required>
+            <label for="phone" style="font-size: 15px; padding-left: 2%;">Phone Number</label>
+          </div>
+          <p ng-show="RepaymentForm.phone.$invalid && !RepaymentForm.phone.$pristine" class="help-block">Phone Number is required</p>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <textarea id="notes" class="materialize-textarea"></textarea>
+            <label for="notes">Notes</label>
+          </div>
+        </div>
+        <div class="row">
+          <center>
+            <div class="spinner" ng-show="loading">
+              <img src="images/cubic_loader.gif">
+            </div>
+          </center>
+        </div>
+        <div class="row" ng-show="errorCreds">
+          <center>
+            <p class="help-block">{{errorMsg}}</p>
+          </center>
+        </div>
+        <div class="row">
+          <button type="submit" ng-disabled="RepaymentForm.$invalid" class="waves-effect waves-light btn right blue lighten-2">
+            Submit
+            <i class="icon ion-android-share"></i>
+          </button>
+          <button type="reset" class="waves-effect waves-light btn left red lighten-2">
+            <i class="icon ion-close"></i>
+            Cancel
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
