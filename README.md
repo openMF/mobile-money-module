@@ -1,5 +1,7 @@
 # Mobile Money Application for the Mifos Platform
 
+[![Join the chat at https://gitter.im/openMF/mobile-money-module](https://badges.gitter.im/openMF/mobile-money-module.svg)](https://gitter.im/openMF/mobile-money-module?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 ## Work done
 * Implemented complete interface for Mobile money interaction with the mifos platform
 * Successfully integrated MTN mobile money
