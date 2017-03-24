@@ -1,6 +1,6 @@
-package org.mifos.mobile.money.repository;
+package org.fineract.mobilemoney.repository;
 
-import org.mifos.mobile.money.domain.Transaction;
+import org.fineract.mobilemoney.domain.Transaction;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

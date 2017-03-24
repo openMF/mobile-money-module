@@ -1,6 +1,6 @@
-package org.mifos.mobile.money.repository;
+package org.fineract.mobilemoney.repository;
 
-import org.mifos.mobile.money.domain.Configuration;
+import org.fineract.mobilemoney.domain.Configuration;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;

@@ -1,4 +1,4 @@
-package org.mifos.mobile.money.domain;
+package org.fineract.mobilemoney.domain;
 
 import javax.persistence.*;
 import java.util.Date;
