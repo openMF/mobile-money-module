@@ -1,3 +1,5 @@
 momo-ui/node_modules/
 momo-ui/bower_components/
 .DS_Store
+.idea/
+.idea/*
