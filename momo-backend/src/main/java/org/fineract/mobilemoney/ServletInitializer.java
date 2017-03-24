@@ -1,4 +1,4 @@
-package org.mifos.mobile.money;
+package org.fineract.mobilemoney;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.support.SpringBootServletInitializer;

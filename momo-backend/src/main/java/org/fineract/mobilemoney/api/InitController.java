@@ -1,4 +1,4 @@
-package org.mifos.mobile.money.api;
+package org.fineract.mobilemoney.api;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -8,5 +8,5 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping(value="/api/v2")
-public class ConfigurationController {
+public class InitController {
 }

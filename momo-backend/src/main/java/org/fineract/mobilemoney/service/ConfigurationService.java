@@ -1,8 +1,8 @@
-package org.mifos.mobile.money.service;
-
-import org.mifos.mobile.money.domain.Configuration;
+package org.fineract.mobilemoney.service;
 
 import java.util.Collection;
+
+import org.fineract.mobilemoney.domain.Configuration;
 
 /**
  * Created by daniel on 2/22/17.

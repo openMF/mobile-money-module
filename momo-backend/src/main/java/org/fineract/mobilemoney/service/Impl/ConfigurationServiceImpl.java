@@ -1,7 +1,7 @@
-package org.mifos.mobile.money.service.Impl;
+package org.fineract.mobilemoney.service.Impl;
 
-import org.mifos.mobile.money.domain.Configuration;
-import org.mifos.mobile.money.service.ConfigurationService;
+import org.fineract.mobilemoney.domain.Configuration;
+import org.fineract.mobilemoney.service.ConfigurationService;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;

@@ -1,8 +1,8 @@
-package org.mifos.mobile.money.service.Impl;
+package org.fineract.mobilemoney.service.Impl;
 
-import org.mifos.mobile.money.domain.Transaction;
-import org.mifos.mobile.money.repository.TransactionRepository;
-import org.mifos.mobile.money.service.TransactionService;
+import org.fineract.mobilemoney.domain.Transaction;
+import org.fineract.mobilemoney.repository.TransactionRepository;
+import org.fineract.mobilemoney.service.TransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
