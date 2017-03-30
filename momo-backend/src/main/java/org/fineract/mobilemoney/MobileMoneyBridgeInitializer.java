@@ -3,11 +3,11 @@ package org.fineract.mobilemoney;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.support.SpringBootServletInitializer;
 
-public class ServletInitializer extends SpringBootServletInitializer {
+public class MobileMoneyBridgeInitializer extends SpringBootServletInitializer {
 
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-		return application.sources(MobileMoneyApplication.class);
+		return application.sources(MobileMoneyBridge.class);
 	}
 
 }
