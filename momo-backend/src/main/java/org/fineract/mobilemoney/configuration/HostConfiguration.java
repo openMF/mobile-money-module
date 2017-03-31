@@ -1,7 +1,9 @@
 package org.fineract.mobilemoney.configuration;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
 
+@Service
 public class HostConfiguration {
 
 	@Value("${hostconfig.host-address}")
@@ -12,6 +14,8 @@ public class HostConfiguration {
 
 	@Value("${server.port}")
 	private Integer port;
+	
+	private String fineractHostName;
 
 	public String getHostName() {
 		return this.hostName;
