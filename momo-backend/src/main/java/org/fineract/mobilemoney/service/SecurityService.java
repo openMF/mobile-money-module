@@ -32,7 +32,7 @@ public class SecurityService {
 		Tenant tenant = this.tenantService.findTenantByTenantName(tenantName);
 		if (tenant != null) {
 
-			System.out.println("Tenant Already Exists");
+			System.out.println("Tenant Already Exists Exception");
 		}
 
 		final String randomKey = UUID.randomUUID().toString();
