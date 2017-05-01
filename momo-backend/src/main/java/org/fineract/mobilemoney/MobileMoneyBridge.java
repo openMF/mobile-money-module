@@ -4,9 +4,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class MobileMoneyApplication {
+public class MobileMoneyBridge {
 
 	public static void main(String[] args) {
-		SpringApplication.run(MobileMoneyApplication.class, args);
+		SpringApplication.run(MobileMoneyBridge.class, args);
 	}
 }
