@@ -34,15 +34,7 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-cache')
 	compile('org.springframework.boot:spring-boot-starter-data-jpa')
 	compile('org.springframework.boot:spring-boot-starter-web')
-	compile("org.flywaydb:flyway-core")
 	runtime('mysql:mysql-connector-java')
-	compile('org.apache.velocity:velocity:1.7')
-    compile('com.squareup.okhttp:okhttp:2.0.0')
-    compile('com.squareup.okhttp:okhttp-urlconnection:2.0.0')
-    compile('com.squareup.retrofit:retrofit:1.6.1')
-    // https://mvnrepository.com/artifact/com.google.code.gson/gson
-	compile group: 'com.google.code.gson', name: 'gson', version: '2.3.1'
-    
 	providedRuntime('org.springframework.boot:spring-boot-starter-tomcat')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
