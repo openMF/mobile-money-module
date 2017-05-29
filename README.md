@@ -24,7 +24,7 @@ To setup project on local environment,
 1. Fork the project from [official repository here](https://github.com/openMF/mobile-money-module)
 2. Clone the code from your own forked repo using `git clone <url_to_your_fork>`
 3. Change in to the `mobile-money-module` directory using `cd mobile-money-module`
-4. Add remote as upstream: `git add remote upstream https://github.com/openMF/mobile-money-module`
+4. Add remote as upstream: `git remote add upstream https://github.com/openMF/mobile-money-module`
 
 ### Setup Webservice
 
