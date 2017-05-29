@@ -3,3 +3,11 @@ momo-ui/bower_components/
 .DS_Store
 .idea
 .idea/*
+
+momo-backend/.DS_Store
+momo-backend/src/.DS_Store
+momo-backend/src/main/.DS_Store
+momo-backend/src/main/java/.DS_Store
+momo-backend/src/main/java/org/.DS_Store
+momo-backend/src/main/java/org/fineract/.DS_Store
+
